@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to EZ Poker</title>
+</head>
+<style>
+    input {
+        width: 250px;
+        padding: 5px;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;         /* Opera/IE 8+ */
+    }
+</style>
+<body>
+
+<form th:action="@{/addScore}" th:object="${user}" method="post">
+    <h2>Start Poker-ing!</h2>
+    <label for="name">Please enter your name:</label><br>
+    <input type="text" name="name" id="name"/><br>
+    <label for="score">Please enter your poker score:</label><br>
+    <input type="number" name="score" id="score"/><br>
+    <input type="submit" value="submit">
+</form>
+
+
+</body>
+</html>

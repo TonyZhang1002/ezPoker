@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>EZ Poker (for Bourbaki Team)</title>
+</head>
+<style>
+    table,table tr th, table tr td { border:1px solid #0094ff; }
+    table { width: 200px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}
+</style>
+<body>
+
+<div class="mainList">
+    <h2>Score Board</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        <tr th:each="user,Stat : ${users}">
+            <td th:text="${user.name}"></td>
+            <span th:switch="${show}">
+                <td th:case=true th:text="${user.score}"></td>
+                <td th:case=false>*</td>
+            </span>
+        </tr>
+    </table>
+    <a th:unless="${show}" href="/showScores/show">I am the master! I want to see the scores!</a>
+</div>
+
+</body>
+</html>
