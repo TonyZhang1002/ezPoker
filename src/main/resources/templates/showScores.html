@@ -25,7 +25,16 @@
             </span>
         </tr>
     </table>
-    <a th:unless="${show}" href="/showScores/show">I am the master! I want to see the scores!</a>
+    <span th:unless="${show}">
+        <form th:action="@{/showScores/show}" th:method="get" >
+            <button type="submit" id="showScoresButton">I am the master! I want to see the scores!</button>
+        </form>
+    </span>
+    <span th:if="${show}">
+        <form th:action="@{/clearScores}" th:method="post" >
+            <button type="submit" id="clearScoresButton">I am the master! I want to clear all the scores!</button>
+        </form>
+    </span>
 </div>
 
 </body>

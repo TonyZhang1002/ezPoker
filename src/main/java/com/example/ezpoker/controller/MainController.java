@@ -5,6 +5,7 @@ import com.example.ezpoker.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,6 +44,12 @@ public class MainController {
         model.addAttribute("users", userList);
         model.addAttribute("show", true);
         return "showScores";
+    }
+
+    @PostMapping(value = "/clearScores")
+    public String clearScores(Model model) {
+        mainService.deleteAll();
+        return "redirect:/addScore";
     }
 
     @GetMapping(value = "/error")

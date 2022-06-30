@@ -28,8 +28,8 @@ public class MainService {
         userRepository.save(user);
     }
 
-    public void delete(int id) {
-        userRepository.deleteById(id);
+    public void deleteAll() {
+        userRepository.deleteAll();
     }
 
 }
